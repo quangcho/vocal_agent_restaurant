@@ -1,6 +1,11 @@
 {
   "restaurant": "Gino Pizza",
   "currency": "EUR",
+  "delivery": {
+    "fee": 0,
+    "minimum_order": 0,
+    "note": "Free delivery, no minimum order."
+  },
   "source": "data/menu.pdf",
   "sections": [
     {
@@ -132,6 +137,7 @@
     "pepperoni": "Meat (cured pork and beef sausage).",
     "parmesan": "Real Parmigiano Reggiano is made with animal rennet, so it is not strictly vegetarian.",
     "gorgonzola": "Traditional Gorgonzola is made with animal rennet, so it is not strictly vegetarian.",
-    "honey": "Not vegan."
+    "honey": "Not vegan.",
+    "mozzarella": "Our mozzarella is made with vegetarian (microbial) rennet."
   }
 }

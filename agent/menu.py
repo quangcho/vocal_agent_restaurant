@@ -25,7 +25,7 @@ class Menu:
 
     def list_menu(self) -> dict:
         """The whole menu, grouped by section, with prices in euros."""
-        return {"currency": self.data["currency"], **{
+        return {"currency": self.data["currency"], "delivery": self.data["delivery"], **{
             section["name"]: [
                 {"id": i["id"], "name": i["name"], "price": i["price"]}
                 for i in section["items"]
@@ -92,7 +92,7 @@ class Menu:
 
 
 TOOLS = [
-    {"name": "list_menu", "description": "List every item on the menu with its id and price.",
+    {"name": "list_menu", "description": "List every item on the menu with its id and price, plus the delivery terms.",
      "input_schema": {"type": "object", "properties": {}, "additionalProperties": False}},
     {"name": "get_item",
      "description": "Get one item: ingredients, price, and kitchen notes (meat, animal rennet, etc.).",
