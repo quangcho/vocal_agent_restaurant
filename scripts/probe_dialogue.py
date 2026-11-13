@@ -23,12 +23,16 @@ from elevenlabs.core.api_error import ApiError
 WAITER_LINE = "Gino Pizza, good evening! What can I get you?"
 GUEST_LINE = "[curious] Hi! Do you have anything vegetarian?"
 
+# Voices picked from the first probe: Bella (waiter) and Roger (guest).
+WAITER_VOICE = "hpp4J3VqNfWAUOO0d1Us"  # Bella - Professional, Bright, Warm
+GUEST_VOICE = "CwhRBWXzGAHq8TQ4Fs17"   # Roger - Laid-Back, Casual, Resonant
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="eleven_v4_turbo")
-    parser.add_argument("--waiter-voice", help="voice_id for the waiter (default: first premade)")
-    parser.add_argument("--guest-voice", help="voice_id for the guest (default: second premade)")
+    parser.add_argument("--waiter-voice", default=WAITER_VOICE, help="voice_id for the waiter (default: Bella)")
+    parser.add_argument("--guest-voice", default=GUEST_VOICE, help="voice_id for the guest (default: Roger)")
     parser.add_argument("--waiter-tag", default="[warm, light Italian accent]",
                         help='audio tag before the waiter line, e.g. "[warm, light Italian accent]"')
     parser.add_argument("--confirm", action="store_true", help="spend credits on one tiny request")
@@ -50,13 +54,10 @@ def main() -> int:
     print("\nPremade voices (free call):")
     for v in voices:
         print(f"  {v.voice_id}  {v.name}")
-    if len(voices) < 2:
-        print("Need at least two voices.")
-        return 1
     inputs = [
         {"text": f"{args.waiter_tag} {WAITER_LINE}".strip(),
-         "voice_id": args.waiter_voice or voices[0].voice_id},
-        {"text": GUEST_LINE, "voice_id": args.guest_voice or voices[1].voice_id},
+         "voice_id": args.waiter_voice},
+        {"text": GUEST_LINE, "voice_id": args.guest_voice},
     ]
     chars = sum(len(i["text"]) for i in inputs)
     print(f"\nPlanned request: model={args.model}, {chars} characters.")

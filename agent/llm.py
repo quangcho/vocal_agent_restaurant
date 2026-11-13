@@ -2,7 +2,7 @@
 
 import anthropic
 
-MODEL = "claude-opus-5-5"
+MODEL = "claude-sonnet-5-5"
 
 
 def create(client: anthropic.Anthropic, *, effort: str = "medium", **params):
