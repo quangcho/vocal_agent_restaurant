@@ -1,0 +1,63 @@
+{
+  "scene": "family",
+  "model": "eleven_v4_turbo",
+  "cache_key": "422336115cfd98e1",
+  "ring": "ring.mp3",
+  "audio": "family.mp3",
+  "lines": [
+    {
+      "turn": 1,
+      "speaker": "waiter",
+      "start": 0.0,
+      "end": 3.47
+    },
+    {
+      "turn": 2,
+      "speaker": "guest",
+      "start": 3.47,
+      "end": 16.491
+    },
+    {
+      "turn": 3,
+      "speaker": "waiter",
+      "start": 16.491,
+      "end": 29.24
+    },
+    {
+      "turn": 4,
+      "speaker": "guest",
+      "start": 29.24,
+      "end": 33.04
+    },
+    {
+      "turn": 5,
+      "speaker": "waiter",
+      "start": 33.04,
+      "end": 41.447
+    },
+    {
+      "turn": 6,
+      "speaker": "guest",
+      "start": 41.447,
+      "end": 45.685
+    },
+    {
+      "turn": 7,
+      "speaker": "waiter",
+      "start": 45.685,
+      "end": 57.37
+    },
+    {
+      "turn": 8,
+      "speaker": "guest",
+      "start": 57.37,
+      "end": 61.442
+    },
+    {
+      "turn": 9,
+      "speaker": "waiter",
+      "start": 61.442,
+      "end": 66.166
+    }
+  ]
+}

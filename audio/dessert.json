@@ -1,0 +1,75 @@
+{
+  "scene": "dessert",
+  "model": "eleven_v4_turbo",
+  "cache_key": "e3ab9c4956635401",
+  "ring": "ring.mp3",
+  "audio": "dessert.mp3",
+  "lines": [
+    {
+      "turn": 1,
+      "speaker": "waiter",
+      "start": 0.0,
+      "end": 3.529
+    },
+    {
+      "turn": 2,
+      "speaker": "guest",
+      "start": 3.529,
+      "end": 6.497
+    },
+    {
+      "turn": 3,
+      "speaker": "waiter",
+      "start": 6.497,
+      "end": 11.936
+    },
+    {
+      "turn": 4,
+      "speaker": "guest",
+      "start": 11.936,
+      "end": 17.524
+    },
+    {
+      "turn": 5,
+      "speaker": "waiter",
+      "start": 17.524,
+      "end": 27.403
+    },
+    {
+      "turn": 6,
+      "speaker": "guest",
+      "start": 27.403,
+      "end": 31.852
+    },
+    {
+      "turn": 7,
+      "speaker": "waiter",
+      "start": 31.852,
+      "end": 37.451
+    },
+    {
+      "turn": 8,
+      "speaker": "guest",
+      "start": 37.451,
+      "end": 41.128
+    },
+    {
+      "turn": 9,
+      "speaker": "waiter",
+      "start": 41.128,
+      "end": 50.495
+    },
+    {
+      "turn": 10,
+      "speaker": "guest",
+      "start": 50.495,
+      "end": 52.973
+    },
+    {
+      "turn": 11,
+      "speaker": "waiter",
+      "start": 52.973,
+      "end": 56.17
+    }
+  ]
+}

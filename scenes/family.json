@@ -1,0 +1,343 @@
+{
+  "id": "family",
+  "title": "Dinner for four on a budget",
+  "persona": "Leo, a tired parent ordering for two adults and two kids, one of whom hates mushrooms. Polite, counting every euro.",
+  "goal": "Order dinner for four for under 50 euros, nothing with mushrooms for the kids, and hear the exact total.",
+  "turns": [
+    {
+      "speaker": "sound",
+      "text": "phone ringing"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Gino Pizza, good evening! What can I get started for you?",
+      "tools": [],
+      "performance": "[cheerful, light Italian accent] Gino Pizza, good evening! What can I get started for you?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Hi, good evening. I need dinner for four, two adults and two kids, and I'd like to stay under 50 euros. Could you suggest something? One of the kids hates mushrooms, so none of those please.",
+      "performance": "[polite, slightly hopeful] Hi, good evening. I need dinner for four, two adults and two kids, and I'd like to stay under 50 euros. Could you suggest something? One of the kids hates mushrooms, so none of those please."
+    },
+    {
+      "speaker": "waiter",
+      "text": "Good news, we can skip mushrooms easily. Three pizzas, say a Margherita, a Pepperoni and a Calzone, come to thirty-eight euros. Add four soft drinks and you're at forty-eight. Sound good?",
+      "tools": [
+        {
+          "tool": "list_menu",
+          "input": {},
+          "output": {
+            "currency": "EUR",
+            "delivery": {
+              "fee": 0,
+              "minimum_order": 0,
+              "note": "Free delivery, no minimum order."
+            },
+            "Pizza": [
+              {
+                "id": "margherita",
+                "name": "Margherita",
+                "price": 13.0
+              },
+              {
+                "id": "calzone",
+                "name": "Calzone",
+                "price": 13.0
+              },
+              {
+                "id": "regina",
+                "name": "Regina",
+                "price": 10.0
+              },
+              {
+                "id": "pepperoni",
+                "name": "Pepperoni",
+                "price": 12.0
+              },
+              {
+                "id": "goat-cheese-honey",
+                "name": "Goat Cheese & Honey",
+                "price": 14.0
+              }
+            ],
+            "Desserts": [
+              {
+                "id": "dessert-of-the-day",
+                "name": "Dessert of the day",
+                "price": 4.5
+              },
+              {
+                "id": "profiteroles",
+                "name": "Profiteroles",
+                "price": 3.5
+              },
+              {
+                "id": "vanilla-ice-cream",
+                "name": "Vanilla ice cream",
+                "price": 3.5
+              },
+              {
+                "id": "tiramisu",
+                "name": "Tiramisu",
+                "price": 3.5
+              },
+              {
+                "id": "apple-tart",
+                "name": "Apple tart",
+                "price": 3.5
+              }
+            ],
+            "Drinks": [
+              {
+                "id": "still-water",
+                "name": "Still water",
+                "price": 4.5
+              },
+              {
+                "id": "sparkling-water",
+                "name": "Sparkling water",
+                "price": 3.5
+              },
+              {
+                "id": "soft-drinks",
+                "name": "Soft drinks",
+                "price": 2.5
+              },
+              {
+                "id": "orange-juice",
+                "name": "Orange juice",
+                "price": 3.5
+              },
+              {
+                "id": "fresh-lemonade",
+                "name": "Fresh lemonade",
+                "price": 3.5
+              }
+            ]
+          }
+        },
+        {
+          "tool": "find_dishes_without",
+          "input": {
+            "ingredients": [
+              "mushrooms"
+            ]
+          },
+          "output": {
+            "without": [
+              "mushrooms"
+            ],
+            "pizzas": [
+              {
+                "id": "margherita",
+                "name": "Margherita",
+                "price": 13.0
+              },
+              {
+                "id": "calzone",
+                "name": "Calzone",
+                "price": 13.0
+              },
+              {
+                "id": "pepperoni",
+                "name": "Pepperoni",
+                "price": 12.0
+              },
+              {
+                "id": "goat-cheese-honey",
+                "name": "Goat Cheese & Honey",
+                "price": 14.0
+              }
+            ]
+          }
+        }
+      ],
+      "performance": "[reassuringly, light Italian accent] Good news, we can skip mushrooms easily. Three pizzas, say a Margherita, a Pepperoni and a Calzone, come to thirty-eight euros. Add four soft drinks and you're at forty-eight. Sound good?"
+    },
+    {
+      "speaker": "guest",
+      "text": "That sounds good for the price. Does the Calzone have any mushrooms in it?",
+      "performance": "[curious] That sounds good for the price. Does the Calzone have any mushrooms in it?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "No mushrooms in the Calzone. It's cream sauce with mozzarella, gorgonzola, parmesan and goat cheese. Want me to put the order in?",
+      "tools": [
+        {
+          "tool": "get_item",
+          "input": {
+            "item_id": "calzone"
+          },
+          "output": {
+            "id": "calzone",
+            "name": "Calzone",
+            "price": 13.0,
+            "ingredients": [
+              "cream sauce",
+              "mozzarella",
+              "gorgonzola",
+              "parmesan",
+              "goat cheese"
+            ],
+            "section": "Pizza",
+            "currency": "EUR",
+            "kitchen_notes": {
+              "mozzarella": "Our mozzarella is made with vegetarian (microbial) rennet.",
+              "gorgonzola": "Traditional Gorgonzola is made with animal rennet, so it is not strictly vegetarian.",
+              "parmesan": "Real Parmigiano Reggiano is made with animal rennet, so it is not strictly vegetarian."
+            }
+          }
+        }
+      ],
+      "performance": "[warmly, light Italian accent] No mushrooms in the Calzone. It's cream sauce with mozzarella, gorgonzola, parmesan and goat cheese. Want me to put the order in?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Yes please, go ahead. Could you tell me the exact total once it's in?",
+      "performance": "[relieved, appreciative] Yes please, go ahead. Could you tell me the exact total once it's in?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "It's all in: a Margherita, a Pepperoni, a Calzone and four soft drinks. The exact total is forty-eight euros, and delivery is free. Anything else, or shall we wrap up?",
+      "tools": [
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "margherita"
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              }
+            ],
+            "total": 13.0,
+            "currency": "EUR"
+          }
+        },
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "pepperoni"
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Pepperoni",
+                "quantity": 1,
+                "price": 12.0
+              }
+            ],
+            "total": 25.0,
+            "currency": "EUR"
+          }
+        },
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "calzone"
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Pepperoni",
+                "quantity": 1,
+                "price": 12.0
+              },
+              {
+                "name": "Calzone",
+                "quantity": 1,
+                "price": 13.0
+              }
+            ],
+            "total": 38.0,
+            "currency": "EUR"
+          }
+        },
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "soft-drinks",
+            "quantity": 4
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Pepperoni",
+                "quantity": 1,
+                "price": 12.0
+              },
+              {
+                "name": "Calzone",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Soft drinks",
+                "quantity": 4,
+                "price": 10.0
+              }
+            ],
+            "total": 48.0,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[helpful, upbeat, light Italian accent] It's all in: a Margherita, a Pepperoni, a Calzone and four soft drinks. The exact total is forty-eight euros, and delivery is free. Anything else, or shall we wrap up?"
+    },
+    {
+      "speaker": "guest",
+      "text": "That's everything, thank you. Forty-eight euros total, goodbye!",
+      "performance": "[content, cheerful] That's everything, thank you. Forty-eight euros total, goodbye!"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Perfect, forty-eight euros it is. Enjoy your dinner, and goodbye!",
+      "tools": [],
+      "performance": "[warmly, delighted, light Italian accent] Perfect, forty-eight euros it is. Enjoy your dinner, and goodbye!"
+    }
+  ],
+  "order": {
+    "items": [
+      {
+        "name": "Margherita",
+        "quantity": 1,
+        "price": 13.0
+      },
+      {
+        "name": "Pepperoni",
+        "quantity": 1,
+        "price": 12.0
+      },
+      {
+        "name": "Calzone",
+        "quantity": 1,
+        "price": 13.0
+      },
+      {
+        "name": "Soft drinks",
+        "quantity": 4,
+        "price": 10.0
+      }
+    ],
+    "total": 48.0,
+    "currency": "EUR"
+  }
+}

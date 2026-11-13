@@ -1,0 +1,254 @@
+{
+  "id": "dessert",
+  "title": "What's the dessert of the day?",
+  "persona": "Sam, a regular with a sweet tooth, cheerful and a bit impatient. Calls mostly for the dessert.",
+  "goal": "Find out what the dessert of the day is, then order a pizza and two desserts.",
+  "turns": [
+    {
+      "speaker": "sound",
+      "text": "phone ringing"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Gino Pizza, good evening! What can I get started for you?",
+      "tools": [],
+      "performance": "[cheerful, light Italian accent] Gino Pizza, good evening! What can I get started for you?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Hi, it's Sam! What's the dessert of the day today?",
+      "performance": "[friendly, curious] Hi, it's Sam! What's the dessert of the day today?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Hi Sam! Today it's a pistachio tiramisu, four fifty. Want one with your pizza?",
+      "tools": [
+        {
+          "tool": "dessert_of_the_day",
+          "input": {},
+          "output": {
+            "price": 4.5,
+            "today": "Pistachio tiramisu"
+          }
+        }
+      ],
+      "performance": "[warmly, light Italian accent] Hi Sam! Today it's a pistachio tiramisu, four fifty. Want one with your pizza?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Ooh, yes please, I'll take two of those! And one pizza too, what do you recommend?",
+      "performance": "[excited, delighted] Ooh, yes please, I'll take two of those! And one pizza too, what do you recommend?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Two pistachio tiramisus are in. For pizza, the Margherita is a classic at thirteen euros, or the Goat Cheese and Honey at fourteen. Any dietary needs?",
+      "tools": [
+        {
+          "tool": "list_menu",
+          "input": {},
+          "output": {
+            "currency": "EUR",
+            "delivery": {
+              "fee": 0,
+              "minimum_order": 0,
+              "note": "Free delivery, no minimum order."
+            },
+            "Pizza": [
+              {
+                "id": "margherita",
+                "name": "Margherita",
+                "price": 13.0
+              },
+              {
+                "id": "calzone",
+                "name": "Calzone",
+                "price": 13.0
+              },
+              {
+                "id": "regina",
+                "name": "Regina",
+                "price": 10.0
+              },
+              {
+                "id": "pepperoni",
+                "name": "Pepperoni",
+                "price": 12.0
+              },
+              {
+                "id": "goat-cheese-honey",
+                "name": "Goat Cheese & Honey",
+                "price": 14.0
+              }
+            ],
+            "Desserts": [
+              {
+                "id": "dessert-of-the-day",
+                "name": "Dessert of the day",
+                "price": 4.5
+              },
+              {
+                "id": "profiteroles",
+                "name": "Profiteroles",
+                "price": 3.5
+              },
+              {
+                "id": "vanilla-ice-cream",
+                "name": "Vanilla ice cream",
+                "price": 3.5
+              },
+              {
+                "id": "tiramisu",
+                "name": "Tiramisu",
+                "price": 3.5
+              },
+              {
+                "id": "apple-tart",
+                "name": "Apple tart",
+                "price": 3.5
+              }
+            ],
+            "Drinks": [
+              {
+                "id": "still-water",
+                "name": "Still water",
+                "price": 4.5
+              },
+              {
+                "id": "sparkling-water",
+                "name": "Sparkling water",
+                "price": 3.5
+              },
+              {
+                "id": "soft-drinks",
+                "name": "Soft drinks",
+                "price": 2.5
+              },
+              {
+                "id": "orange-juice",
+                "name": "Orange juice",
+                "price": 3.5
+              },
+              {
+                "id": "fresh-lemonade",
+                "name": "Fresh lemonade",
+                "price": 3.5
+              }
+            ]
+          }
+        },
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "dessert-of-the-day",
+            "quantity": 2
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Dessert of the day",
+                "quantity": 2,
+                "price": 9.0
+              }
+            ],
+            "total": 9.0,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[helpful, attentive, light Italian accent] Two pistachio tiramisus are in. For pizza, the Margherita is a classic at thirteen euros, or the Goat Cheese and Honey at fourteen. Any dietary needs?"
+    },
+    {
+      "speaker": "guest",
+      "text": "No dietary needs! Goat Cheese and Honey sounds great, I'll go with that.",
+      "performance": "[happy, decisive] No dietary needs! Goat Cheese and Honey sounds great, I'll go with that."
+    },
+    {
+      "speaker": "waiter",
+      "text": "Lovely choice! Goat Cheese and Honey is added. Anything to drink, or shall I wrap it up?",
+      "tools": [
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "goat-cheese-honey"
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Dessert of the day",
+                "quantity": 2,
+                "price": 9.0
+              },
+              {
+                "name": "Goat Cheese & Honey",
+                "quantity": 1,
+                "price": 14.0
+              }
+            ],
+            "total": 23.0,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[delighted, warmly, light Italian accent] Lovely choice! Goat Cheese and Honey is added. Anything to drink, or shall I wrap it up?"
+    },
+    {
+      "speaker": "guest",
+      "text": "That's everything, thanks! Can you confirm the order and total?",
+      "performance": "[relaxed, polite] That's everything, thanks! Can you confirm the order and total?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "You've got one Goat Cheese and Honey pizza and two pistachio tiramisus. The total is twenty-three euros, with free delivery. Thanks Sam, see you soon!",
+      "tools": [
+        {
+          "tool": "get_order",
+          "input": {},
+          "output": {
+            "items": [
+              {
+                "name": "Dessert of the day",
+                "quantity": 2,
+                "price": 9.0
+              },
+              {
+                "name": "Goat Cheese & Honey",
+                "quantity": 1,
+                "price": 14.0
+              }
+            ],
+            "total": 23.0,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[confident, friendly, light Italian accent] You've got one Goat Cheese and Honey pizza and two pistachio tiramisus. The total is twenty-three euros, with free delivery. Thanks Sam, see you soon!"
+    },
+    {
+      "speaker": "guest",
+      "text": "Perfect, thanks so much! Bye!",
+      "performance": "[grateful, cheerful] Perfect, thanks so much! Bye!"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Bye Sam, enjoy your pizza and tiramisu!",
+      "tools": [],
+      "performance": "[warmly, smiling, light Italian accent] Bye Sam, enjoy your pizza and tiramisu!"
+    }
+  ],
+  "order": {
+    "items": [
+      {
+        "name": "Dessert of the day",
+        "quantity": 2,
+        "price": 9.0
+      },
+      {
+        "name": "Goat Cheese & Honey",
+        "quantity": 1,
+        "price": 14.0
+      }
+    ],
+    "total": 23.0,
+    "currency": "EUR"
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "id": "vegetarian",
+  "title": "Is it really vegetarian?",
+  "persona": "Maya, late twenties, vegetarian, friendly and quick. She has been caught out by hidden animal rennet before.",
+  "goal": "Order one pizza that is truly vegetarian, and a drink. One question about it is enough.",
+  "max_turns": 4,
+  "turns": [
+    {
+      "speaker": "sound",
+      "text": "phone ringing"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Gino Pizza, good evening! What can I get started for you?",
+      "tools": [],
+      "performance": "[cheerful, light Italian accent] Gino Pizza, good evening! What can I get started for you?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Hi! I'm vegetarian, so is your margherita made with vegetarian-friendly cheese, no animal rennet?",
+      "performance": "[curious] Hi! I'm vegetarian, so is your margherita made with vegetarian-friendly cheese, no animal rennet?"
+    },
+    {
+      "speaker": "waiter",
+      "text": "Good news: our mozzarella is made with vegetarian microbial rennet, so the margherita works for you. It's thirteen euros. Shall I add one?",
+      "tools": [
+        {
+          "tool": "list_menu",
+          "input": {},
+          "output": {
+            "currency": "EUR",
+            "delivery": {
+              "fee": 0,
+              "minimum_order": 0,
+              "note": "Free delivery, no minimum order."
+            },
+            "Pizza": [
+              {
+                "id": "margherita",
+                "name": "Margherita",
+                "price": 13.0
+              },
+              {
+                "id": "calzone",
+                "name": "Calzone",
+                "price": 13.0
+              },
+              {
+                "id": "regina",
+                "name": "Regina",
+                "price": 10.0
+              },
+              {
+                "id": "pepperoni",
+                "name": "Pepperoni",
+                "price": 12.0
+              },
+              {
+                "id": "goat-cheese-honey",
+                "name": "Goat Cheese & Honey",
+                "price": 14.0
+              }
+            ],
+            "Desserts": [
+              {
+                "id": "dessert-of-the-day",
+                "name": "Dessert of the day",
+                "price": 4.5
+              },
+              {
+                "id": "profiteroles",
+                "name": "Profiteroles",
+                "price": 3.5
+              },
+              {
+                "id": "vanilla-ice-cream",
+                "name": "Vanilla ice cream",
+                "price": 3.5
+              },
+              {
+                "id": "tiramisu",
+                "name": "Tiramisu",
+                "price": 3.5
+              },
+              {
+                "id": "apple-tart",
+                "name": "Apple tart",
+                "price": 3.5
+              }
+            ],
+            "Drinks": [
+              {
+                "id": "still-water",
+                "name": "Still water",
+                "price": 4.5
+              },
+              {
+                "id": "sparkling-water",
+                "name": "Sparkling water",
+                "price": 3.5
+              },
+              {
+                "id": "soft-drinks",
+                "name": "Soft drinks",
+                "price": 2.5
+              },
+              {
+                "id": "orange-juice",
+                "name": "Orange juice",
+                "price": 3.5
+              },
+              {
+                "id": "fresh-lemonade",
+                "name": "Fresh lemonade",
+                "price": 3.5
+              }
+            ]
+          }
+        },
+        {
+          "tool": "get_item",
+          "input": {
+            "item_id": "margherita"
+          },
+          "output": {
+            "id": "margherita",
+            "name": "Margherita",
+            "price": 13.0,
+            "ingredients": [
+              "tomato sauce",
+              "mozzarella",
+              "fresh basil",
+              "olive oil"
+            ],
+            "section": "Pizza",
+            "currency": "EUR",
+            "kitchen_notes": {
+              "mozzarella": "Our mozzarella is made with vegetarian (microbial) rennet."
+            }
+          }
+        }
+      ],
+      "performance": "[reassuringly, light Italian accent] Good news: our mozzarella is made with vegetarian microbial rennet, so the margherita works for you. It's thirteen euros. Shall I add one?"
+    },
+    {
+      "speaker": "guest",
+      "text": "Yes please, one margherita, and a sparkling water too.",
+      "performance": "[happily] Yes please, one margherita, and a sparkling water too."
+    },
+    {
+      "speaker": "waiter",
+      "text": "Added! One margherita and one sparkling water. Anything else, maybe a dessert?",
+      "tools": [
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "margherita",
+            "quantity": 1
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              }
+            ],
+            "total": 13.0,
+            "currency": "EUR"
+          }
+        },
+        {
+          "tool": "add_to_order",
+          "input": {
+            "item_id": "sparkling-water",
+            "quantity": 1
+          },
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Sparkling water",
+                "quantity": 1,
+                "price": 3.5
+              }
+            ],
+            "total": 16.5,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[friendly, light Italian accent] Added! One margherita and one sparkling water. Anything else, maybe a dessert?"
+    },
+    {
+      "speaker": "guest",
+      "text": "No thanks, that's everything. Thank you, goodbye!",
+      "performance": "[politely, warmly] No thanks, that's everything. Thank you, goodbye!"
+    },
+    {
+      "speaker": "waiter",
+      "text": "To confirm: one margherita and one sparkling water, sixteen fifty total, with free delivery. Enjoy, and goodbye!",
+      "tools": [
+        {
+          "tool": "get_order",
+          "input": {},
+          "output": {
+            "items": [
+              {
+                "name": "Margherita",
+                "quantity": 1,
+                "price": 13.0
+              },
+              {
+                "name": "Sparkling water",
+                "quantity": 1,
+                "price": 3.5
+              }
+            ],
+            "total": 16.5,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "performance": "[warmly, light Italian accent] To confirm: one margherita and one sparkling water, sixteen fifty total, with free delivery. Enjoy, and goodbye!"
+    }
+  ],
+  "order": {
+    "items": [
+      {
+        "name": "Margherita",
+        "quantity": 1,
+        "price": 13.0
+      },
+      {
+        "name": "Sparkling water",
+        "quantity": 1,
+        "price": 3.5
+      }
+    ],
+    "total": 16.5,
+    "currency": "EUR"
+  }
+}

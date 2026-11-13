@@ -1,0 +1,51 @@
+{
+  "scene": "vegetarian",
+  "model": "eleven_v4_turbo",
+  "cache_key": "3ab0d2ed1f44ed4d",
+  "ring": "ring.mp3",
+  "audio": "vegetarian.mp3",
+  "lines": [
+    {
+      "turn": 1,
+      "speaker": "waiter",
+      "start": 0.0,
+      "end": 3.617
+    },
+    {
+      "turn": 2,
+      "speaker": "guest",
+      "start": 3.617,
+      "end": 10.166
+    },
+    {
+      "turn": 3,
+      "speaker": "waiter",
+      "start": 10.166,
+      "end": 18.883
+    },
+    {
+      "turn": 4,
+      "speaker": "guest",
+      "start": 18.883,
+      "end": 22.643
+    },
+    {
+      "turn": 5,
+      "speaker": "waiter",
+      "start": 22.643,
+      "end": 27.763
+    },
+    {
+      "turn": 6,
+      "speaker": "guest",
+      "start": 27.763,
+      "end": 31.043
+    },
+    {
+      "turn": 7,
+      "speaker": "waiter",
+      "start": 31.043,
+      "end": 39.283
+    }
+  ]
+}
