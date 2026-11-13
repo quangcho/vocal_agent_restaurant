@@ -21,6 +21,14 @@ python scripts/probe_dialogue.py --confirm  # one ~100-character request (< $0.0
 
 The audio lands in `out/` (ignored by git).
 
+To pick voices (free, previews open in a browser), then try them:
+
+```bash
+python scripts/find_voices.py --accent italian --gender male
+python scripts/probe_dialogue.py --confirm --waiter-voice <id> \
+    --waiter-tag "[warm, light Italian accent]"
+```
+
 ## Step 2: simulate the calls (text only)
 
 ```bash
