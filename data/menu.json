@@ -1,0 +1,43 @@
+{
+  "restaurant": "Pizza Bruno",
+  "currency": "EUR",
+  "source": "data/menu.pdf",
+  "sections": [
+    {
+      "name": "Pizza",
+      "items": [
+        {"id": "margherita", "name": "Margherita", "price": 13.0,
+         "ingredients": ["tomato sauce", "mozzarella", "fresh basil", "olive oil"]},
+        {"id": "calzone", "name": "Calzone", "price": 13.0,
+         "ingredients": ["cream sauce", "mozzarella", "gorgonzola", "parmesan", "goat cheese"]},
+        {"id": "regina", "name": "Regina", "price": 10.0,
+         "ingredients": ["tomato sauce", "mozzarella", "mushrooms", "ham"]},
+        {"id": "pepperoni", "name": "Pepperoni", "price": 12.0,
+         "ingredients": ["tomato sauce", "mozzarella", "fresh basil", "pepperoni"]},
+        {"id": "goat-cheese-honey", "name": "Goat Cheese & Honey", "price": 14.0,
+         "ingredients": ["cream sauce", "goat cheese", "parmesan", "honey", "oregano"]}
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        {"id": "dessert-of-the-day", "name": "Dessert of the day", "price": 4.5,
+         "today": null},
+        {"id": "profiteroles", "name": "Profiteroles", "price": 3.5},
+        {"id": "vanilla-ice-cream", "name": "Vanilla ice cream", "price": 3.5},
+        {"id": "tiramisu", "name": "Tiramisu", "price": 3.5},
+        {"id": "apple-tart", "name": "Apple tart", "price": 3.5}
+      ]
+    },
+    {
+      "name": "Drinks",
+      "items": [
+        {"id": "still-water", "name": "Still water", "price": 4.5},
+        {"id": "sparkling-water", "name": "Sparkling water", "price": 3.5},
+        {"id": "soft-drinks", "name": "Soft drinks", "price": 2.5},
+        {"id": "orange-juice", "name": "Orange juice", "price": 3.5},
+        {"id": "fresh-lemonade", "name": "Fresh lemonade", "price": 3.5}
+      ]
+    }
+  ]
+}
