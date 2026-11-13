@@ -1,0 +1,14 @@
+{
+  "model_id": "eleven_v4_turbo",
+  "language_code": "en",
+  "waiter": {
+    "voice_id": "hpp4J3VqNfWAUOO0d1Us",
+    "name": "Bella",
+    "tag": "[warm, light Italian accent]"
+  },
+  "guests": {
+    "vegetarian": {"voice_id": "EXAVITQu4vr4xnSDxMaL", "name": "Sarah", "status": "to listen"},
+    "dessert": {"voice_id": "CwhRBWXzGAHq8TQ4Fs17", "name": "Roger", "status": "approved in probe"},
+    "family": {"voice_id": "JBFqnCBsd6RMkjVDRZzb", "name": "George", "status": "to listen"}
+  }
+}
