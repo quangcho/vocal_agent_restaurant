@@ -1,0 +1,57 @@
+"""The waiter: Claude answering the phone, with the menu tools.
+
+The loop is written out by hand on purpose: it is short, and it lets us
+record every tool call so the website can show what the agent checked.
+"""
+
+import json
+
+from .llm import create, text_of
+from .menu import TOOLS, Menu
+
+SYSTEM = """You answer the phone at {restaurant}, a small pizzeria.
+
+How you speak:
+- This is a phone call that will be read aloud. Plain spoken English, no lists, no markdown.
+- Short turns: one to three sentences. Warm, quick, a little playful, never pushy.
+
+What you know:
+- You know nothing about the menu except what your tools return. Check before you answer.
+- Never guess a price, an ingredient or a total: use get_item, get_order and the other tools.
+- If a guest asks for something vegetarian, check the kitchen notes: some cheeses are made
+  with animal rennet. Say it simply and honestly, then suggest what does fit.
+- If something is unknown (for example today's dessert is not announced), say so and offer
+  an alternative.
+- When the guest is done, confirm the order and the total from get_order, then say goodbye.
+"""
+
+
+class Waiter:
+    def __init__(self, client, menu: Menu | None = None):
+        self.client = client
+        self.menu = menu or Menu()
+        self.system = SYSTEM.format(restaurant=self.menu.data["restaurant"])
+        self.messages: list = []
+
+    def reply(self, guest_says: str) -> tuple[str, list[dict]]:
+        """Answer one guest turn. Returns the spoken reply and the tool calls made."""
+        self.messages.append({"role": "user", "content": guest_says})
+        trace: list[dict] = []
+        while True:
+            response = create(self.client, system=self.system, tools=TOOLS,
+                              messages=self.messages)
+            self.messages.append({"role": "assistant", "content": response.content})
+            calls = [b for b in response.content if b.type == "tool_use"]
+            if not calls:
+                return text_of(response), trace
+            results = []
+            for call in calls:
+                output = self.menu.call(call.name, call.input)
+                trace.append({"tool": call.name, "input": call.input, "output": output})
+                results.append({
+                    "type": "tool_result",
+                    "tool_use_id": call.id,
+                    "content": json.dumps(output),
+                    "is_error": "error" in output,
+                })
+            self.messages.append({"role": "user", "content": results})

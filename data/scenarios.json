@@ -1,0 +1,20 @@
+[
+  {
+    "id": "vegetarian",
+    "title": "Is it really vegetarian?",
+    "persona": "Maya, late twenties, a strict vegetarian who has been caught out before. Friendly but careful, asks follow-up questions.",
+    "goal": "Order one vegetarian pizza and a drink for delivery. Make sure nothing on it comes from an animal that was killed."
+  },
+  {
+    "id": "dessert",
+    "title": "What's the dessert of the day?",
+    "persona": "Sam, a regular with a sweet tooth, cheerful and a bit impatient. Calls mostly for the dessert.",
+    "goal": "Find out what the dessert of the day is, then order a pizza and two desserts."
+  },
+  {
+    "id": "family",
+    "title": "Dinner for four on a budget",
+    "persona": "Leo, a tired parent ordering for two adults and two kids, one of whom hates mushrooms. Polite, counting every euro.",
+    "goal": "Order dinner for four for under 50 euros, nothing with mushrooms for the kids, and hear the exact total."
+  }
+]

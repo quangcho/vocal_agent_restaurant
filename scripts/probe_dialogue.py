@@ -21,7 +21,7 @@ from elevenlabs.core.api_error import ApiError
 
 
 LINES = [
-    "[warmly] Pizza Bruno, good evening! What can I get you?",
+    "[warmly] Gino Pizza, good evening! What can I get you?",
     "[curious] Hi! Do you have anything vegetarian?",
 ]
 
