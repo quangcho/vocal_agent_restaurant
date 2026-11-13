@@ -54,9 +54,9 @@ pytest -q                   # offline tests, free
 Every paid step does a dry run first and only spends credits with `--confirm`:
 
 ```bash
-python scripts/simulate.py --confirm   # 1. the calls, text only (Claude, a few cents each)
+python scripts/simulate.py --confirm   # 1. the calls, text only (a few cents each)
 python scripts/direct.py --confirm     # 2. one audio tag per line, words untouched
-python scripts/voice.py --confirm      # 3. Text to Dialogue + phone ring (about $0.13 for all three)
+python scripts/voice.py --confirm      # 3. voices + phone ring (~$0.13 for all three)
 ```
 
 Calls whose text, voices and model haven't changed are never regenerated. To pick other voices, see `scripts/find_voices.py` and `scripts/probe_dialogue.py`.
@@ -64,14 +64,14 @@ Calls whose text, voices and model haven't changed are never regenerated. To pic
 ## Inside
 
 ```
-agent/menu.py       the menu and the 6 tools. No AI: prices and totals always come from here
-agent/waiter.py     Claude on the phone, tool loop, long replies get a shorter take
-agent/guest.py      Claude as the caller, hears only what the waiter says
-data/menu.json      faithful transcription of data/menu.pdf, with kitchen notes (rennet, meat)
-data/scenarios.json the three callers and what they want
-data/voices.json    model, waiter voice and accent tag, one voice per guest
-scripts/            simulate → direct → voice, plus the voice probes
-scenes/  audio/     the generated calls, committed
+agent/menu.py        the menu and its 6 tools: prices and totals, no AI
+agent/waiter.py      Claude on the phone: tool loop, short replies
+agent/guest.py       Claude as the caller: hears only the waiter
+data/menu.json       the real menu (menu.pdf) + kitchen notes
+data/scenarios.json  the three callers and what they want
+data/voices.json     model, voices, the waiter's accent tag
+scripts/             simulate -> direct -> voice, plus voice probes
+scenes/, audio/      the generated calls, committed
 ```
 
 <sub>Built with Claude Code · Damien Chau · [Portfolio](https://portfolio-nine-rosy-69.vercel.app)</sub>
