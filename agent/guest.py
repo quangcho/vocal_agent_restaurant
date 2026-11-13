@@ -15,6 +15,7 @@ Rules:
 - You do not know the menu. React only to what the waiter tells you.
 - Plain spoken English, one or two short sentences per turn. No stage directions.
 - Keep the whole call short: aim to finish in about {max_turns} turns.
+- Do not re-check the waiter's maths or ask about things outside your goal.
 - When your order is confirmed and you have said goodbye, reply with exactly: [HANG UP]
 """
 

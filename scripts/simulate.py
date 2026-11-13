@@ -23,7 +23,7 @@ from dotenv import load_dotenv  # noqa: E402
 from agent.guest import HANG_UP, Guest  # noqa: E402
 from agent.waiter import Waiter  # noqa: E402
 
-MAX_TURNS = 6  # guest turns; keeps each call under a minute of audio
+MAX_TURNS = 5  # guest turns; keeps each call under a minute of audio
 
 
 def run(client, scenario: dict) -> dict:

@@ -24,14 +24,14 @@ class Menu:
     # --- tools -----------------------------------------------------------
 
     def list_menu(self) -> dict:
-        """The whole menu, grouped by section, with prices."""
-        return {
+        """The whole menu, grouped by section, with prices in euros."""
+        return {"currency": self.data["currency"], **{
             section["name"]: [
                 {"id": i["id"], "name": i["name"], "price": i["price"]}
                 for i in section["items"]
             ]
             for section in self.data["sections"]
-        }
+        }}
 
     def get_item(self, item_id: str) -> dict:
         """One item with its ingredients and the kitchen notes that apply to it."""
@@ -39,6 +39,7 @@ class Menu:
         if item is None:
             return {"error": f"No item with id '{item_id}'. Call list_menu to see the ids."}
         result = {k: v for k, v in item.items() if k != "today"}
+        result["currency"] = self.data["currency"]
         ingredients = item.get("ingredients", [])
         notes = {i: self.notes[i] for i in ingredients if i in self.notes}
         if notes:
