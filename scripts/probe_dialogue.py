@@ -29,7 +29,7 @@ def main() -> int:
     parser.add_argument("--model", default="eleven_v4_turbo")
     parser.add_argument("--waiter-voice", help="voice_id for the waiter (default: first premade)")
     parser.add_argument("--guest-voice", help="voice_id for the guest (default: second premade)")
-    parser.add_argument("--waiter-tag", default="[warmly]",
+    parser.add_argument("--waiter-tag", default="[warm, light Italian accent]",
                         help='audio tag before the waiter line, e.g. "[warm, light Italian accent]"')
     parser.add_argument("--confirm", action="store_true", help="spend credits on one tiny request")
     args = parser.parse_args()
