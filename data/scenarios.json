@@ -2,8 +2,9 @@
   {
     "id": "vegetarian",
     "title": "Is it really vegetarian?",
-    "persona": "Maya, late twenties, a strict vegetarian who has been caught out before. Friendly but careful, asks follow-up questions.",
-    "goal": "Order one vegetarian pizza and a drink for delivery. Make sure nothing on it comes from an animal that was killed."
+    "persona": "Maya, late twenties, vegetarian, friendly and quick. She has been caught out by hidden animal rennet before.",
+    "goal": "Order one pizza that is truly vegetarian, and a drink. One question about it is enough.",
+    "max_turns": 4
   },
   {
     "id": "dessert",

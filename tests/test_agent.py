@@ -54,3 +54,13 @@ def test_waiter_uses_a_tool_then_answers():
     assert text == "Today it's a pistachio tiramisu."
     assert trace[0]["tool"] == "dessert_of_the_day"
     assert trace[0]["output"]["today"] == "Pistachio tiramisu"
+
+
+def test_long_reply_gets_a_shorter_take():
+    long_text = " ".join(["word"] * 40)
+    client = FakeClient([
+        NS(stop_reason="end_turn", content=[NS(type="text", text=long_text)]),
+        NS(stop_reason="end_turn", content=[NS(type="text", text="Short and sweet.")]),
+    ])
+    text, _ = Waiter(client).reply("Tell me everything.")
+    assert text == "Short and sweet."

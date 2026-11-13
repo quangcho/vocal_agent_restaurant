@@ -9,6 +9,14 @@ import json
 from .llm import create, text_of
 from .menu import TOOLS, Menu
 
+MAX_WORDS = 30  # a phone reply longer than this gets a second, shorter take
+
+SHORTEN = """Rewrite this phone reply from a pizzeria waiter in under 25 words.
+Keep every price, dish name and fact exactly as they are. Drop the rest.
+Reply with the new text only.
+
+{text}"""
+
 SYSTEM = """You answer the phone at {restaurant}, a small pizzeria.
 
 How you speak:
@@ -47,7 +55,7 @@ class Waiter:
             self.messages.append({"role": "assistant", "content": response.content})
             calls = [b for b in response.content if b.type == "tool_use"]
             if not calls:
-                return text_of(response), trace
+                return self._phone_length(text_of(response)), trace
             results = []
             for call in calls:
                 output = self.menu.call(call.name, call.input)
@@ -59,3 +67,15 @@ class Waiter:
                     "is_error": "error" in output,
                 })
             self.messages.append({"role": "user", "content": results})
+
+    def _phone_length(self, text: str) -> str:
+        """Long answers are boring on the phone: ask for a shorter take.
+
+        The waiter's own memory keeps the full answer; only the spoken line
+        changes, and the guest hears the short one.
+        """
+        if len(text.split()) <= MAX_WORDS:
+            return text
+        response = create(self.client, effort="low",
+                          messages=[{"role": "user", "content": SHORTEN.format(text=text)}])
+        return text_of(response)

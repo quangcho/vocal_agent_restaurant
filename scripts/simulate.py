@@ -28,12 +28,13 @@ MAX_TURNS = 5  # guest turns; keeps each call under a minute of audio
 
 def run(client, scenario: dict) -> dict:
     waiter = Waiter(client)
-    guest = Guest(client, scenario["persona"], scenario["goal"], max_turns=MAX_TURNS - 1)
+    max_turns = scenario.get("max_turns", MAX_TURNS)
+    guest = Guest(client, scenario["persona"], scenario["goal"], max_turns=max_turns - 1)
     turns = [{"speaker": "sound", "text": "phone ringing"}]
 
     waiter_line, trace = waiter.reply("(The phone rings. You pick up.)")
     turns.append({"speaker": "waiter", "text": waiter_line, "tools": trace})
-    for _ in range(MAX_TURNS):
+    for _ in range(max_turns):
         guest_line = guest.reply(waiter_line)
         done = HANG_UP in guest_line
         guest_line = guest_line.replace(HANG_UP, "").strip()

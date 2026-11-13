@@ -40,6 +40,18 @@ python scripts/simulate.py --confirm    # 3 calls with Claude, a few cents each
 Each call lands in `scenes/<id>.json`: the transcript plus every tool the waiter used.
 Read it before any audio is generated.
 
+## Step 3: direct and voice the calls
+
+```bash
+python scripts/direct.py --confirm   # Claude adds one Eleven v4 audio tag per line, words untouched
+python scripts/voice.py              # dry run: characters and cost
+python scripts/voice.py --confirm    # one Text to Dialogue request per scene, plus the phone ring
+```
+
+`audio/<scene>.mp3` is the call, `audio/ring.mp3` plays before it, and
+`audio/<scene>.json` gives the start and end of every line for synced subtitles.
+Voices and model live in `data/voices.json`. Unchanged scenes are never regenerated.
+
 ## How it works
 
 - `agent/menu.py`: the menu and the waiter's tools. Plain Python: prices, ingredients
@@ -47,6 +59,7 @@ Read it before any audio is generated.
 - `agent/waiter.py`: Claude answering the phone, calling the tools in a short loop.
 - `agent/guest.py`: Claude playing a caller who only hears what the waiter says.
 - `data/scenarios.json`: the three callers and what they want.
+- A reply over 30 words gets a second, shorter take: long answers are boring on the phone.
 
 ## Data
 
